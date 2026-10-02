@@ -1,0 +1,36 @@
+@startuml tandem
+class Pais{
+    id: int
+    nombre: string
+}
+
+class Persona{
+    id: int
+    nombre: string
+    apellido: string
+    alias: string
+    email: string
+    pais: pais
+    estadoConversacion: int
+    'es int porque 0 = cualquiera, 1 = solo personas compatibles, 2 = nadie'
+    cuantasConversacion: int
+    noMolestar: bool
+    bloqueados []: int
+    'es int bloqueados porq son las id d los bloqueados'
+
+    IdiomasHabla []: Idioma 
+    IdiomasAprendiendo []: Idioma
+}
+
+class Idioma{
+    nombre: int
+    codigo: string
+    nivel: int
+
+    'al crear la clase de Idioma, configuro que cuando se quiera elegir idioma, solo pueda de un array que pongo yo'
+}
+
+Pais --> Persona
+Idioma --> Persona
+
+@enduml
